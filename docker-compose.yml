@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  scheduler:
+    build: ./scheduler
+    container_name: jellystat-scheduler
+    environment:
+      - BASE=http://your-jellystat:3000
+      - TOKEN=your_jwt_token_here
+    volumes:
+      - ./scheduler/logs:/var/log
+    restart: unless-stopped

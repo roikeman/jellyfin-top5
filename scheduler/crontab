@@ -1,0 +1,3 @@
+# Run job.py every hour
+0 * * * * /usr/local/bin/python /app/job.py >> /var/log/job.log 2>&1
+
