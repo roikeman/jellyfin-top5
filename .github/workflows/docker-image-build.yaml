@@ -26,12 +26,13 @@ jobs:
 
       - name: Extract version tag
         id: tag
-        run: echo "##[set-output name=value;]${GITHUB_REF#refs/tags/}"
+        run: echo "value=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
       - name: Build and push Docker image
+      
         uses: docker/build-push-action@v4
         with:
-          context: .
+          context: ./scheduler
           push: true
           tags: |
             froike/jellyfin-top5:${{ steps.tag.outputs.value }}
