@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os, requests, sys
 
-BASE = os.getenv("BASE")
+BASE = os.getenv("BASE_URL")
 TOKEN = os.getenv("TOKEN")
 if not BASE or not TOKEN:
     print("BASE and TOKEN must be set", file=sys.stderr)
